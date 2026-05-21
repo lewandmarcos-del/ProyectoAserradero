@@ -1,0 +1,110 @@
+#include <iostream>
+#include <cstring>
+#include "ArchivoDetallesPresupuesto.h"
+using namespace std;
+
+//----------CONSTRUCTOR REPO--------------------------
+
+ArchivoDetallesPresupuesto::ArchivoDetallesPresupuesto(const char *n)
+{
+    strcpy(nombre, n);
+}
+
+//----------LEER--------------------------
+DetallePresupuesto ArchivoDetallesPresupuesto::leerRegistro(int pos)
+{
+    DetallePresupuesto obj;
+    FILE *p = fopen(nombre, "rb");
+    if(p == nullptr) {
+        obj.setIdDetallePresupuesto(-2);
+        return obj;
+    }
+    fseek(p, pos * sizeof(obj), 0);
+    size_t leidos = fread(&obj, sizeof(obj), 1, p);
+    fclose(p);
+    if(leidos != 1) {
+        obj.setIdDetallePresupuesto(-1);
+    }
+    return obj;
+}
+
+//----------GRABAR--------------------------
+bool ArchivoDetallesPresupuesto::grabarRegistro(DetallePresupuesto obj)
+{
+    int nuevoId = obtenerUltimoID() + 1;
+    obj.setIdDetallePresupuesto(nuevoId);
+
+    FILE *p = fopen(nombre, "ab");
+    if(p == nullptr) {
+        return false;
+    }
+    bool escribio = fwrite(&obj, sizeof(obj), 1, p);
+    fclose(p);
+    return escribio;
+}
+
+//----------MODIFICAR--------------------------
+
+bool ArchivoDetallesPresupuesto::modificarRegistro(DetallePresupuesto obj, int pos)
+{
+
+    int cantReg = contarRegistros();
+    if(pos < 0 || pos >= cantReg) {
+        return false;
+    }
+
+    FILE *p = fopen(nombre, "rb+");
+    if(p == nullptr) {
+        return false;
+    }
+
+    fseek(p, pos * sizeof(DetallePresupuesto), 0);
+    bool escribio = fwrite(&obj, sizeof(DetallePresupuesto), 1, p);
+    fclose(p);
+    return escribio;
+}
+
+//----------CONTAR REGISTROS--------------------------
+int ArchivoDetallesPresupuesto::contarRegistros()
+{
+    FILE *p = fopen(nombre, "rb");
+    if(p == nullptr) {
+        return 0;
+    }
+    fseek(p, 0, 2);
+    int tam=ftell(p);
+    fclose(p);
+    return tam/sizeof (DetallePresupuesto);
+}
+
+
+//----------BUSCAR REGISTROS POR ID--------------------------
+int ArchivoDetallesPresupuesto::buscarRegistro(int Id)
+{
+    DetallePresupuesto obj;
+    int cantReg = contarRegistros();
+    for(int i=0; i<cantReg; i++) {
+        obj = leerRegistro(i);
+        if(obj.getIdDetallePresupuesto() == Id) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+//----------OBTENER ULTIMO ID--------------------------
+
+int ArchivoDetallesPresupuesto::obtenerUltimoID()
+{
+    int cantReg = contarRegistros();
+    if (cantReg == 0) {
+        return 0;
+    }
+
+    DetallePresupuesto obj = leerRegistro(cantReg - 1);
+    int ultimoID = obj.getIdDetallePresupuesto();
+    if(ultimoID <= 0) {
+        return 0; // Si el ultimo ID es 0 o negativo, empezamos desde 1
+    }
+    return obj.getIdDetallePresupuesto();
+}

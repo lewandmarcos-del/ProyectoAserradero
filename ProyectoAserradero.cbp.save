@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ProyectoAserradero" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option virtualFolders="ClasesArchivo/;ClasesAuxiliares/" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/ProyectoAserradero" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/ProyectoAserradero" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="ArchivoClientes.cpp">
+			<Option virtualFolder="ClasesArchivo/" />
+		</Unit>
+		<Unit filename="ArchivoClientes.h" />
+		<Unit filename="ArchivoDetallesPresupuesto.cpp">
+			<Option virtualFolder="ClasesArchivo/" />
+		</Unit>
+		<Unit filename="ArchivoDetallesPresupuesto.h" />
+		<Unit filename="ArchivoMaderas.cpp">
+			<Option virtualFolder="ClasesArchivo/" />
+		</Unit>
+		<Unit filename="ArchivoMaderas.h" />
+		<Unit filename="ArchivoPresupuestos.cpp">
+			<Option virtualFolder="ClasesArchivo/" />
+		</Unit>
+		<Unit filename="ArchivoPresupuestos.h" />
+		<Unit filename="ArchivoTipoMadera.cpp">
+			<Option virtualFolder="ClasesArchivo/" />
+		</Unit>
+		<Unit filename="ArchivoTipoMadera.h" />
+		<Unit filename="Clientes.cpp" />
+		<Unit filename="Clientes.h" />
+		<Unit filename="DetallesPresupuesto.cpp" />
+		<Unit filename="DetallesPresupuesto.h" />
+		<Unit filename="Direccion.cpp">
+			<Option virtualFolder="ClasesAuxiliares/" />
+		</Unit>
+		<Unit filename="Direccion.h" />
+		<Unit filename="Funciones.cpp" />
+		<Unit filename="Funciones.h" />
+		<Unit filename="Maderas.cpp" />
+		<Unit filename="Maderas.h" />
+		<Unit filename="Medidas.cpp">
+			<Option virtualFolder="ClasesAuxiliares/" />
+		</Unit>
+		<Unit filename="Medidas.h" />
+		<Unit filename="Presupuestos.cpp" />
+		<Unit filename="Presupuestos.h" />
+		<Unit filename="TipoMadera.cpp" />
+		<Unit filename="TipoMadera.h" />
+		<Unit filename="main.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,12 @@
+# Archivos compilados
+*.exe
+*.o
+*.obj
+*.out
+
+# Archivos de CodeBlocks
+*.cbp
+*.depend
+*.layout
+bin/
+obj/

@@ -1,0 +1,20 @@
+#ifndef ARCHIVOMADERAS_H_INCLUDED
+#define ARCHIVOMADERAS_H_INCLUDED
+#include "Maderas.h"
+
+class ArchivoClientes{
+    private:
+        char nombre[30];
+    public:
+        ArchivoMaderas(const char *n="Maderas.dat");
+        Maderas leerRegistro(int);
+        bool grabarRegistro(Maderas);
+        bool modificarRegistro(Maderas, int);
+        int contarRegistros();
+        int buscarRegistro(int);
+        bool verificarExistencia(const char*);
+        int obtenerUltimoID();
+};
+
+
+#endif // ARCHIVOMADERAS_H_INCLUDED

@@ -1,0 +1,20 @@
+#ifndef ARCHIVOPRESUPUESTOS_H_INCLUDED
+#define ARCHIVOPRESUPUESTOS_H_INCLUDED
+
+#include "Presupuestos.h"
+
+class ArchivoPresupuestos{
+    private:
+        char nombre[30];
+    public:
+        ArchivoPresupuestos(const char *n="Clientes.dat");
+        Presupuestos leerRegistro(int);
+        bool grabarRegistro(Presupuestos);
+        bool modificarRegistro(Presupuestos, int);
+        int contarRegistros();
+        int buscarRegistro(int);
+        bool verificarExistencia(const char*);
+        int obtenerUltimoID();
+};
+
+#endif // ARCHIVOPRESUPUESTOS_H_INCLUDED
