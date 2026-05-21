@@ -3,6 +3,18 @@
 *.o
 *.obj
 *.out
+*.slo
+*.lo
+*.ilk
+*.dll
+*.so
+*.dylib
+*.lib
+*.a
+
+# Precompiled Headers
+*.gch
+*.pch
 
 # Archivos de CodeBlocks
 *.cbp
@@ -10,3 +22,24 @@
 *.layout
 bin/
 obj/
+
+# Debugger Files
+*.pdb
+*.dwo
+*.d
+
+# Prerequisites
+*.d
+
+# Fortran module files
+*.mod
+*.smod
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
