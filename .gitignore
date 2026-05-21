@@ -39,6 +39,7 @@ obj/
 *.exe
 *.out
 *.app
+*.bat
 
 # Archivos del sistema
 .DS_Store
